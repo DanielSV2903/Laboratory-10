@@ -309,4 +309,8 @@ public class BTree implements  Tree {
         }
         return ""; //corregir para el retorno correcto
     }
+
+    public BTreeNode getRoot() {
+        return root;
+    }
 }

@@ -232,5 +232,31 @@ public class BST implements  Tree {
         }
         return result;
     }
+    public boolean isBalanced() throws TreeException {
+        if (isEmpty())
+            throw new TreeException("Binary Search Tree is empty");
+        return isBalanced(root);
+    }
 
+    private boolean isBalanced(BTreeNode node) {
+        if (node == null) return true;
+        int balanceFactor = getBalanceFactor(node);
+
+        if (balanceFactor < -1 || balanceFactor > 1)//verifica ambas alturas para comprobar que no pasen de (-1,1)
+            return false;
+
+        return isBalanced(node.left) && isBalanced(node.right);//revisar recursivamente el arbol
+    }
+
+    private int getBalanceFactor(BTreeNode node){
+        if(node==null){
+            return 0;
+        }else{
+            return height(node.left) - height(node.right);
+        }
+    }
+
+    public BTreeNode getRoot() {
+        return root;
+    }
 }

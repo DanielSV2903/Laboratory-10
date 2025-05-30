@@ -25,6 +25,11 @@ public class Utility {
     public static int random(int bound) {
         return new Random().nextInt(bound);
     }
+    public static int random(int bound1, int bound2) {
+        int min = Math.min(bound1, bound2);
+        int max = Math.max(bound1, bound2);
+        return new Random().nextInt(max - min + 1) + min;
+    }
 
     public static int compare(Object a, Object b) {
         switch (instanceOf(a, b)){

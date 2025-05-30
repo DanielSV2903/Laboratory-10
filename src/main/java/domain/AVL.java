@@ -296,6 +296,31 @@ public class AVL implements  Tree {
         }
         return result;
     }
+    public Object father(Object element) throws TreeException {
+        if (isEmpty())
+            throw new TreeException("AVL Binary Search Tree is empty");
+        return father(root,element);
+    }
+
+    private Object father(BTreeNode node, Object element) {
+        if (node == null)
+            return null;
+
+        //Caso 1 si uno de los hijos es el elemento buscado, el nodo actual es el padre
+        if ((node.left != null && util.Utility.compare(node.left.data, element) == 0) ||
+                (node.right != null && util.Utility.compare(node.right.data, element) == 0)) {
+            return node.data;
+        }
+
+        //Recursividad
+        //si el elemento es menor, busco en el subárbol izquierdo
+        if (util.Utility.compare(element, node.data) < 0) {
+            return father(node.left, element);
+        } else {
+            //si el elemento es mayor, busco en el subárbol derecho
+            return father(node.right, element);
+        }//recursividad
+    }
 
     @Override
     public String toString() {

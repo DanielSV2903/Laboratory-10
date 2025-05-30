@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /* *
  *
  * @author Profesor Lic. Gilberth Chaves A.
@@ -255,8 +258,51 @@ public class BST implements  Tree {
             return height(node.left) - height(node.right);
         }
     }
+    private Object father(BTreeNode node, Object element) {
+        if (node == null)
+            return null;
+
+        //Caso 1 si uno de los hijos es el elemento buscado, el nodo actual es el padre
+        if ((node.left != null && util.Utility.compare(node.left.data, element) == 0) ||
+                (node.right != null && util.Utility.compare(node.right.data, element) == 0)) {
+            return node.data;
+        }
+
+        //Recursividad
+        //si el elemento es menor, busco en el subárbol izquierdo
+        if (util.Utility.compare(element, node.data) < 0) {
+            return father(node.left, element);
+        } else {
+            //si el elemento es mayor, busco en el subárbol derecho
+            return father(node.right, element);
+        }//recursividad
+    }
 
     public BTreeNode getRoot() {
         return root;
+    }
+    public List<List<Integer>> nodeHeights() throws TreeException {
+        if (isEmpty())
+            throw new TreeException("BST is empty");
+
+        List<Integer> dataList = new ArrayList<>();
+        List<Integer> heightList = new ArrayList<>();
+
+        getNodeHeights(root, dataList, heightList,0);
+
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(dataList);
+        result.add(heightList);
+        return result;
+    }
+
+    private void getNodeHeights(BTreeNode node, List<Integer> dataList, List<Integer> heightList,int height) {
+        if (node == null) return;
+
+        dataList.add((Integer) node.data);
+        heightList.add(height);
+
+        getNodeHeights(node.left, dataList, heightList, height+1);
+        getNodeHeights(node.right, dataList, heightList, height+1);
     }
 }

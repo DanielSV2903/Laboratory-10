@@ -6,6 +6,9 @@ package domain;
  * Binary Search Tree AVL (Arbol de Búsqueda Binaria AVL)
  * AVL = Arbol de busqueda binaria auto balanceado
  * */
+
+import util.Utility;
+
 public class AVL implements  Tree {
     private BTreeNode root; //se refiere a la raiz del arbol
 
@@ -320,6 +323,51 @@ public class AVL implements  Tree {
             //si el elemento es mayor, busco en el subárbol derecho
             return father(node.right, element);
         }//recursividad
+    }
+
+    //Algoritmo que devuelva el hermano (izquierdo o derecho) del elemento dado.
+    public Object brother(Object element) {
+        if(isEmpty())
+            throw new RuntimeException("AVL Binary Search Tree is empty");
+        return brother(root, element);
+    }
+
+    private Object brother(BTreeNode node, Object element){
+        if(node==null) return null;
+
+        if (node.left != null && Utility.compare(node.left.data, element) == 0) {
+            if (node.right != null) return node.right.data;
+            else return "No tiene hermano";
+        }
+        if (node.right != null && Utility.compare(node.right.data, element) == 0) {
+            if (node.left != null) return node.left.data;
+            else return "No tiene hermano";
+        }
+        if (Utility.compare(element, node.data) < 0) return brother(node.left, element);
+        else return brother(node.right, element);
+    }
+
+    //Algoritmo que devuelva los hijos (uno, dos o ninguno) del elemento dado
+    public String children(Object element) {
+        if (isEmpty())
+            throw new RuntimeException("AVL Binary Search Tree is empty");
+        return children(root, element);
+    }
+    private String children(BTreeNode node, Object element){
+        if (node==null) return null;
+
+        String result="";
+
+        if (Utility.compare(node.data, element) == 0){
+            if (node.left != null) result += "\nHijo Izquierdo: " + node.left.data;
+            if (node.right != null) result += "\nHijo Derecho: " + node.right.data;
+            if (node.right == null && node.left == null) result += "No tiene hijos";
+        } else {
+            if (Utility.compare(element, node.data) < 0) return children(node.left, element);
+            else return children(node.right, element);
+        }
+
+        return result;
     }
 
     @Override

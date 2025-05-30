@@ -12,9 +12,9 @@
 
 <BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BTreeTourController">
    <center>
-      <AnchorPane prefHeight="733.0" prefWidth="942.0">
+      <AnchorPane prefHeight="914.0" prefWidth="986.0">
          <children>
-            <Pane prefHeight="787.0" prefWidth="986.0" style="-fx-background-color: #61a131;">
+            <Pane prefHeight="914.0" prefWidth="986.0" style="-fx-background-color: #61a131;">
                <children>
                   <Pane layoutX="-2.0" prefHeight="53.0" prefWidth="986.0" style="-fx-background-color: #fca227;">
                      <children>
@@ -44,7 +44,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Canvas fx:id="canvas" height="632.0" layoutY="159.0" width="942.0" />
+                  <Canvas fx:id="canvas" height="754.0" layoutY="159.0" width="986.0" />
                </children>
             </Pane>
          </children>

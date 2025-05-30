@@ -75,10 +75,10 @@ public class BTreeDrawer {
 
 
     // Nuevos métodos para el recorrido
-    public void drawPreOrder(GraphicsContext gc, BTreeNode root) {
-        gc.clearRect(0, 0, 800, 600);
+    public void drawPreOrder(GraphicsContext gc,BTreeNode node) {
+        gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
         visitCounter = 1;
-        drawPreOrderNode(gc, root, 400, 50, 200);
+        drawPreOrderNode(gc, node, 400, 50, 200);
     }
 
     private void drawPreOrderNode(GraphicsContext gc, BTreeNode node, double x, double y, double offset) {
@@ -98,10 +98,10 @@ public class BTreeDrawer {
         }
     }
 
-    public void drawInOrder(GraphicsContext gc, BTreeNode root) {
-        gc.clearRect(0, 0, 800, 600);
+    public void drawInOrder(GraphicsContext gc,BTreeNode node) {
+        gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
         visitCounter = 1;
-        drawInOrderNode(gc, root, 400, 50, 200);
+        drawInOrderNode(gc, node, 400, 50, 200);
     }
 
     private void drawInOrderNode(GraphicsContext gc, BTreeNode node, double x, double y, double offset) {
@@ -120,10 +120,10 @@ public class BTreeDrawer {
         }
     }
 
-    public void drawPostOrder(GraphicsContext gc, BTreeNode root) {
-        gc.clearRect(0, 0, 800, 600);
+    public void drawPostOrder(GraphicsContext gc,BTreeNode node) {
+        gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
         visitCounter = 1;
-        drawPostOrderNode(gc, root, 400, 50, 200);
+        drawPostOrderNode(gc, node, 400, 50, 200);
     }
 
     private void drawPostOrderNode(GraphicsContext gc, BTreeNode node, double x, double y, double offset) {
@@ -155,8 +155,8 @@ public class BTreeDrawer {
         gc.fillText(dataText, x - NODE_RADIUS / 2, y + 5);
 
         String orderText = String.valueOf(order);
-        double orderX = x + NODE_RADIUS + 5;
-        double orderY = y;
+        double orderX = x-2;
+        double orderY = y + (NODE_RADIUS + 5);
 
         // Añade un pequeño círculo blanco detrás del número
         gc.setFill(Color.WHITE);

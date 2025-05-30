@@ -388,4 +388,21 @@ public class AVL implements  Tree {
     public BTreeNode getRoot() {
         return root;
     }
+
+    public boolean isBalanced() throws TreeException {
+        if (isEmpty())
+            throw new TreeException("Binary Search Tree is empty");
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(BTreeNode node) {
+        if (node == null) return true;
+        int balanceFactor = getBalanceFactor(node);
+
+        if (balanceFactor < -1 || balanceFactor > 1)//verifica ambas alturas para comprobar que no pasen de (-1,1)
+            return false;
+
+        return isBalanced(node.left) && isBalanced(node.right);//revisar recursivamente el arbol
+    }
+
 }

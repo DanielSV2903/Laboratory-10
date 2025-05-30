@@ -8,21 +8,17 @@ import java.util.Random;
 
 public class BTreeDrawer {
     private static final double NODE_RADIUS = 20;
-    private static final double LEVEL_GAP = 70;
+    private static final double LEVEL_GAP = 80;
     private int visitCounter;
-
-    private Random random = new Random();
 
     // Métodos originales sin modificar
     public void draw(GraphicsContext gc,BTreeNode node,int height) {
         gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
         double canvasWidth = gc.getCanvas().getWidth();
-        drawNode(gc, node, canvasWidth / 2, 50, canvasWidth / 2, height,0); // x inicial y offset inicial
-         }
+        drawNode(gc, node, (canvasWidth / 2), 50, canvasWidth / 2, height,0); // x inicial y offset inicial
+    }
 
     private void drawNode(GraphicsContext gc, BTreeNode node, double x, double y, double offset, int treeHeight,int level) {
-        final double NODE_RADIUS = 20;
-        final double LEVEL_GAP = 70;
         if (node == null) return;
 
         // Dibuja nodo
@@ -35,7 +31,11 @@ public class BTreeDrawer {
         gc.fillText(node.data.toString(), x - NODE_RADIUS / 2, y + 5);
 
         // Offset decreciente por nivel
+        double minSpace=NODE_RADIUS-3;
         double newOffset = offset/2;
+        newOffset =Math.max(newOffset,minSpace);
+
+
 
         // Recursión con líneas
         if (node.left != null) {
@@ -52,9 +52,9 @@ public class BTreeDrawer {
             drawNode(gc, node.right, childX, childY, newOffset, treeHeight,level+1);
         }
     }
-    private double calcOffset(int level, double radius) {
-        return radius * Math.pow(2, level + 1);
-    }
+
+
+
     public void drawLevels(GraphicsContext gc,BTreeNode node,double width,int height) throws TreeException {
         drawLevels(gc,node,0,width,height);
     }

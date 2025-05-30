@@ -51,6 +51,9 @@ public class GraphicBtreeController
 
     @javafx.fxml.FXML
     public void randomizeOnAction(ActionEvent actionEvent) {
+        if (!bstButn.isSelected()&&!avlBTN.isSelected())
+            mostrarAlerta(Alert.AlertType.WARNING,"Seleccione un tipo de Binary Tree");
+        else if (avlBTN.isSelected()||bstButn.isSelected()){
         canvas.getGraphicsContext2D().clearRect(0,0,canvas.getWidth(),canvas.getHeight());
         bst.clear();
         avl.clear();
@@ -74,6 +77,16 @@ public class GraphicBtreeController
         }catch (TreeException e){
             e.printStackTrace();
         }
+        }
+    }
+
+    private void mostrarAlerta(Alert.AlertType alertType, String s) {
+        Alert alert = new Alert(alertType);
+        alert.initOwner(canvas.getScene().getWindow());
+        alert.setTitle("Alerta");
+        alert.setHeaderText(null);
+        alert.setContentText(s);
+        alert.showAndWait();
     }
 
     @javafx.fxml.FXML
@@ -115,10 +128,12 @@ public class GraphicBtreeController
     @javafx.fxml.FXML
     public void bstBTNOnAction(ActionEvent actionEvent) {
         avlBTN.setSelected(false);
+        label.setText("BST selected");
     }
 
     @javafx.fxml.FXML
     public void avlBTNOnAction(ActionEvent actionEvent) {
         bstButn.setSelected(false);
+        label.setText("AVL selected");
     }
 }

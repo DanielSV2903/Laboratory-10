@@ -12,39 +12,42 @@
 
 <BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphicBtreeController">
    <center>
-      <AnchorPane prefHeight="957.0" prefWidth="942.0">
+      <AnchorPane prefHeight="737.0" prefWidth="942.0">
          <children>
-            <Pane prefHeight="957.0" prefWidth="942.0" style="-fx-background-color: #7de331;">
+            <Pane prefHeight="786.0" prefWidth="978.0" style="-fx-background-color: #7de331;">
                <children>
-                  <Pane layoutX="-2.0" prefHeight="53.0" prefWidth="942.0" style="-fx-background-color: #fca227;">
+                  <Pane layoutX="-2.0" prefHeight="53.0" prefWidth="978.0" style="-fx-background-color: #fca227;">
                      <children>
-                        <Label layoutX="264.0" layoutY="-5.0" text="Graphic BST/AVL Tree">
+                        <Label layoutX="321.0" layoutY="14.0" text="Graphic BST/AVL Tree" textFill="WHITE">
                            <font>
-                              <Font name="Bodoni MT Bold Italic" size="43.0" />
+                              <Font size="35.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="-1.0" layoutY="53.0" prefHeight="94.0" prefWidth="942.0" style="-fx-background-color: #fca227;">
+                  <Pane layoutX="-1.0" layoutY="53.0" prefHeight="94.0" prefWidth="978.0" style="-fx-background-color: #fca227;">
                      <children>
-                        <Button layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#randomizeOnAction" prefHeight="37.0" prefWidth="104.0" text="Ramdomize" />
-                        <Button fx:id="levelsBtn" disable="true" layoutX="14.0" layoutY="47.0" mnemonicParsing="false" onAction="#levelsOnAction" prefHeight="34.0" prefWidth="104.0" text="Levels" />
-                        <Button fx:id="tourBtn" disable="true" layoutX="128.0" layoutY="46.0" mnemonicParsing="false" onAction="#tourOnAction" prefHeight="36.0" prefWidth="116.0" text="Tour Info" />
-                        <Button fx:id="isBalancedBTN" disable="true" layoutX="128.0" layoutY="4.0" mnemonicParsing="false" onAction="#isBalancedOnAction" prefHeight="37.0" prefWidth="114.0" text="¿Is Balanced?" />
-                        <VBox alignment="TOP_CENTER" layoutX="244.0" layoutY="19.0" prefHeight="44.0" prefWidth="46.0" spacing="10.0">
+                        <Button layoutX="46.0" layoutY="11.0" mnemonicParsing="false" onAction="#randomizeOnAction" prefHeight="29.0" prefWidth="137.0" text="Ramdomize">
+                           <font>
+                              <Font />
+                           </font></Button>
+                        <Button fx:id="levelsBtn" disable="true" layoutX="47.0" layoutY="53.0" mnemonicParsing="false" onAction="#levelsOnAction" prefHeight="25.0" prefWidth="136.0" text="Levels" />
+                        <Button fx:id="tourBtn" disable="true" layoutX="191.0" layoutY="51.0" mnemonicParsing="false" onAction="#tourOnAction" prefHeight="28.0" prefWidth="160.0" text="Tour Info" />
+                        <Button fx:id="isBalancedBTN" disable="true" layoutX="191.0" layoutY="10.0" mnemonicParsing="false" onAction="#isBalancedOnAction" prefHeight="31.0" prefWidth="159.0" text="¿Is Balanced?" />
+                        <VBox alignment="TOP_CENTER" layoutX="365.0" layoutY="25.0" prefHeight="44.0" prefWidth="46.0" spacing="10.0">
                            <children>
-                              <RadioButton fx:id="bstButn" mnemonicParsing="false" onAction="#bstBTNOnAction" text="BST" />
-                              <RadioButton fx:id="avlBTN" mnemonicParsing="false" onAction="#avlBTNOnAction" text="AVL" />
+                              <RadioButton fx:id="bstButn" mnemonicParsing="false" onAction="#bstBTNOnAction" text="BST" textFill="WHITE" />
+                              <RadioButton fx:id="avlBTN" mnemonicParsing="false" onAction="#avlBTNOnAction" text="AVL" textFill="WHITE" />
                            </children>
                         </VBox>
-                        <Label fx:id="label" layoutX="366.0" layoutY="14.0" prefHeight="47.0" prefWidth="342.0" text="Select an option">
+                        <Label fx:id="label" layoutX="434.0" layoutY="24.0" prefHeight="47.0" prefWidth="342.0" text="Select an option" textFill="RED">
                            <font>
                               <Font name="Bodoni MT" size="37.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Canvas fx:id="canvas" height="812.0" layoutY="147.0" width="942.0" />
+                  <Canvas fx:id="canvas" height="634.0" layoutX="8.0" layoutY="147.0" width="966.0" />
                </children>
             </Pane>
          </children>

@@ -14,47 +14,52 @@ public class BTreeDrawer {
     private Random random = new Random();
 
     // Métodos originales sin modificar
-    public void draw(GraphicsContext gc,BST bst) {
-        gc.clearRect(0, 0, 800, 600);
-        drawNode(gc, bst.getRoot(), 400, 50, 200,true);
-    }
+    public void draw(GraphicsContext gc,BTreeNode node,int height) {
+        gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
+        double canvasWidth = gc.getCanvas().getWidth();
+        drawNode(gc, node, canvasWidth / 2, 50, canvasWidth / 2, height,0); // x inicial y offset inicial
+         }
 
-    private void drawNode(GraphicsContext gc, BTreeNode node, double x, double y, double offset,boolean isleft) {
+    private void drawNode(GraphicsContext gc, BTreeNode node, double x, double y, double offset, int treeHeight,int level) {
         final double NODE_RADIUS = 20;
         final double LEVEL_GAP = 70;
-        if (node == null) return;//Caso base
-        //    Color fillColor = Color.color(random.nextDouble(), random.nextDouble(), random.nextDouble());
+        if (node == null) return;
 
-        Color color=Color.LIGHTBLUE;
-        gc.setFill(color);
+        // Dibuja nodo
+        gc.setFill(Color.LIGHTBLUE);
         gc.fillOval(x - NODE_RADIUS, y - NODE_RADIUS, NODE_RADIUS * 2, NODE_RADIUS * 2);
         gc.setStroke(Color.BLACK);
         gc.strokeOval(x - NODE_RADIUS, y - NODE_RADIUS, NODE_RADIUS * 2, NODE_RADIUS * 2);
         gc.setFill(Color.BLACK);
         gc.setFont(new Font(12));
         gc.fillText(node.data.toString(), x - NODE_RADIUS / 2, y + 5);
-        if (isleft)
-            gc.fillText(node.path, x -NODE_RADIUS-7, y + NODE_RADIUS+10);
 
-        //Recursividad
-        if (node.left != null) {//Lado izquierdo
-            double childX = x - offset;
+        // Offset decreciente por nivel
+        double newOffset = offset/2;
+
+        // Recursión con líneas
+        if (node.left != null) {
+            double childX = x - newOffset;
             double childY = y + LEVEL_GAP;
             gc.strokeLine(x, y + NODE_RADIUS, childX, childY - NODE_RADIUS);
-            drawNode(gc, node.left, childX, childY, offset/2,true);
+            drawNode(gc, node.left, childX, childY, newOffset, treeHeight,level+1);
         }
-        if (node.right != null) {//Lado derecho
-            double childX = x + offset;
+
+        if (node.right != null) {
+            double childX = x + newOffset;
             double childY = y + LEVEL_GAP;
             gc.strokeLine(x, y + NODE_RADIUS, childX, childY - NODE_RADIUS);
-            drawNode(gc, node.right, childX, childY, offset/2,false);
+            drawNode(gc, node.right, childX, childY, newOffset, treeHeight,level+1);
         }
     }
-    public void drawLevels(GraphicsContext gc,BST bst,double width) throws TreeException {
-        drawLevels(gc,bst,0,width);
+    private double calcOffset(int level, double radius) {
+        return radius * Math.pow(2, level + 1);
     }
-    private void drawLevels(GraphicsContext gc, BST tree, int initialLevel, double canvasWidth) throws TreeException {
-        int treeHeight = tree.height(); // altura del árbol}
+    public void drawLevels(GraphicsContext gc,BTreeNode node,double width,int height) throws TreeException {
+        drawLevels(gc,node,0,width,height);
+    }
+    private void drawLevels(GraphicsContext gc, BTreeNode node, int initialLevel, double canvasWidth,int height) throws TreeException {
+        int treeHeight = height; // altura del árbol}
         final double LEVEL_GAP=70;
         gc.setStroke(Color.RED);
         gc.setFill(Color.RED);

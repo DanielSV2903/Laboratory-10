@@ -13,21 +13,22 @@ public class GraphicBtreeController
     private BorderPane bp;
     @javafx.fxml.FXML
     private Canvas canvas;
-    private BST bst;
-    private AVL avl;
     @javafx.fxml.FXML
     private Button tourBtn;
     @javafx.fxml.FXML
     private Button levelsBtn;
     @javafx.fxml.FXML
     private Label label;
-    private BTreeDrawer drawer;
     @javafx.fxml.FXML
     private RadioButton bstButn;
     @javafx.fxml.FXML
     private RadioButton avlBTN;
     @javafx.fxml.FXML
     private Button isBalancedBTN;
+
+    private BTreeDrawer drawer;
+    private BST bst;
+    private AVL avl;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -70,7 +71,7 @@ public class GraphicBtreeController
             }
             drawer.draw(canvas.getGraphicsContext2D(),avl.getRoot(),avl.height());
         }
-    }catch (TreeException e){
+        }catch (TreeException e){
             e.printStackTrace();
         }
     }

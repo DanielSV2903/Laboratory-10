@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a424d08-8c4f-4ae2-b18b-f8cb47f8aa6c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/AVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/AVL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/AVLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/AVLTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/OperationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ucr/lab/operations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,21 +18,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "chocol3it"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;chocol3it&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DanielSV2903/Laboratory-10.git",
-    "accountId": "72ca0cd9-c338-45df-908f-c7fbb70e4ecf"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DanielSV2903/Laboratory-10.git&quot;,
+    &quot;accountId&quot;: &quot;72ca0cd9-c338-45df-908f-c7fbb70e4ecf&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2xp8f0kV5MFaZ61vYcTwrh1c283" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,6 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -45,7 +48,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/andre/Documents/GitHub/Laboratory-10",
+    "last_opened_file_path": "C:/Users/andre/Documents/GitHub/Laboratory-10/src/main/resources/ucr/lab",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,12 +58,26 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\Documents\GitHub\Laboratory-10\src\main\resources\ucr\lab" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="domain" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -78,7 +95,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748623753873</updated>
-      <workItem from="1748623754915" duration="7532000" />
+      <workItem from="1748623754915" duration="7559000" />
+      <workItem from="1748640203511" duration="4167000" />
     </task>
     <servers />
   </component>

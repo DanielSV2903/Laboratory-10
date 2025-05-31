@@ -37,59 +37,80 @@ class AVLTest {
         int[] listaNumeros = new int[30];
         //añadir numeros
         for (int i = 0; i < 30; i++) {
-            int randomNumber = util.Utility.random(20, 200);
+            int randomNumber = Utility.random(20, 200);
             avl.add(randomNumber);
             listaNumeros[i] = randomNumber;
         }
 
         //b
-        System.out.println("Contenido del arbol: "+ avl);
+        System.out.println("Contenido del arbol: "+ avl +"\n");
 
         try {
             //c
-            System.out.println("Tamaño del árbol: "+ avl.size());
-            System.out.println("Elemento más grande del árbol: "+ avl.max());
-            System.out.println("Elemento más pequeño del árbol: "+ avl.min());
+            System.out.println("Tamaño del árbol: "+ avl.size() +"\n");
+            System.out.println("Elemento más grande del árbol: "+ avl.max() +"\n");
+            System.out.println("Elemento más pequeño del árbol: "+ avl.min() +"\n");
 
             //d
             if (avl.isBalanced())
-                System.out.println("El árbol esta correctamente balanceado");
+                System.out.println("El árbol esta correctamente balanceado\n");
             else
-                System.out.println("El árbol no esta balanceado");
+                System.out.println("El árbol no esta balanceado\n");
 
             //e
             int deleted = 0;
-            while (deleted <= 5) {
-                int randomNumber = util.Utility.random(20, 200);
-                if (avl.contains(listaNumeros[randomNumber])) {
-                    avl.remove(listaNumeros[randomNumber]);
+            for (int i = 0; i < listaNumeros.length && deleted < 5; i++) {
+                if (avl.contains(listaNumeros[i])) {
+                    avl.remove(listaNumeros[i]);
+                    System.out.println("Eliminado: " + listaNumeros[i] +"\n");
                     deleted++;
                 }
             }
 
             //f
-            System.out.println("Contenido del árbol: "+ avl);
+            System.out.println("Contenido del árbol: "+ avl +"\n");
 
             //g
             if (avl.isBalanced())
-                System.out.println("El árbol esta correctamente balanceado");
-            else
+                System.out.println("El árbol esta correctamente balanceado\n");
+            else {
                 System.out.println("El árbol no esta balanceado");
-
-            //h
-            if (!avl.isBalanced()){
-
+                System.out.println("El árbol debe ser balanceado\n");
             }
 
+            //h
+            if (!avl.isBalanced()) {
+                int[] elementosActuales = new int[avl.size()];
+                int index = 0;
 
+                for (int i = 0; i < listaNumeros.length; i++) {
+                    if (avl.contains(listaNumeros[i]) && index < elementosActuales.length) {
+                        elementosActuales[index] = listaNumeros[i];
+                        index++;
+                    }
+                }
 
+                AVL nuevoAvl = new AVL();
+
+                for (int i = 0; i < index; i++) {
+                    nuevoAvl.add(elementosActuales[i]);
+                }
+
+                avl = nuevoAvl;
+            }
+
+            //i
+            System.out.println("Contenido final del árbol: "+ avl +"\n");
+
+            //j
+            if (avl.isBalanced())
+                System.out.println("El árbol está correctamente balanceado");
+            else
+                System.out.println("El árbol no está balanceado");
 
         } catch (TreeException e) {
             throw new RuntimeException(e);
         }
-
-
-
     }
 
 }
